@@ -1,0 +1,84 @@
+body {
+    width: 100%;
+    align-items: center;
+    margin: 0px auto;
+    justify-content: center;
+    height: max-content;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: rgba(2, 78, 2, 0.842)
+    }
+    #cadastro{
+        width: 100%;
+
+    }
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-color: black;
+    }
+    th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    width: 100%;
+    }
+    #cadastro {
+    display: block; /* Inicialmente visível */
+    
+    }
+    #listagem {
+        display: none; /* Inicialmente oculta */
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        color: rgb(255, 255, 255);
+        background-color: rgb(2, 87, 76);
+        
+    }
+    .btn:hover { 
+        opacity: 0.8;
+    }
+    h1 {
+        color: aliceblue;
+        text-transform: uppercase;/* Deixa tudo em caixa alta */
+        letter-spacing: 2px;/* exEspaço entre palavras */
+        text-shadow: 2px 2px 4px #050000; /* Sombra do tto */
+
+        
+    }
+    h2{
+        color: aliceblue;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px #050000; 
+    }
+    .bnome {
+        color: aliceblue;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px #050000; 
+
+    }
+    input {
+        padding: 10px 45px;
+        font-family: sans-serif;
+        background-color: rgb(191, 218, 199);
+    }
+    #descricao {
+        padding: 20px 45px;
+        font-family: sans-serif;
+        background-color: rgb(191, 218, 199);
+
+    
+    }
+    #disponivel{
+        padding: 2px 10px;
+    }
+    

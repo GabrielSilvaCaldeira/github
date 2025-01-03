@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="OAK.css">
+    <title>Cadastro Produto OAK</title>
+    
+    
+</head>
+    <body>
+
+    <h1>Cadastro de Produtos</h1>
+    
+
+    <div id="cadastro">
+    <button onclick="mostrarListagem()" class="btn">Visualizar Lista</button><br><br>
+
+    <label for="nome" class="bnome">Nome do Produto:</label><br>
+    <input type="text" id="nome" name="nome"><br><br><!--Cadastro de Nome-->
+
+    <label for="descricao" class="bnome">Descrição do Produto:</label><br>
+    <textarea id="descricao" name="descricao"></textarea><br><br><!--Colocar a Descrição do Produto-->
+
+    <label for="valor" class="bnome">Valor do Produto:</label><br>
+    <input type="number" id="valor" name="valor"><br><br><!--Valor do Produto-->
+
+    <label for="disponivel" class="bnome">Disponível para venda:</label>
+    <select id="disponivel" name="disponivel"><!--Alternativa se o produto está disponível ou não-->
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select><br><br>
+
+    <button onclick="cadastrarProduto()" class="btn">Cadastrar</button>
+    </div>
+
+    <div id="listagem">
+        <h2>Listagem de Produtos</h2>
+        <button onclick="mostrarCadastro()" class="btn">Novo Produto</button>
+        <table id="tabelaProdutos">
+            <thead>
+                <tr>
+                    <th class="bnome">Nome</th>
+                    <th class="bnome">Valor</th>
+                </tr>
+            </thead>
+            <tbody class="bnome">
+            </tbody>
+        </table><br><br>
+        
+        <button onclick="mostrarCadastro()" class="btn">Voltar para Cadastro</button>
+    </div>
+
+    <script>
+    let produtos = [];
+
+    function cadastrarProduto() {
+    const nome = document.getElementById("nome").value;
+    const descricao = document.getElementById("descricao").value;
+    const valor = parseFloat(document.getElementById("valor").value); // Converte para número
+    const disponivel = document.getElementById("disponivel").value;
+
+    if (nome && !isNaN(valor)) { // Validação básica
+        produtos.push({ nome, valor });
+        atualizarTabela();
+        limparFormulario();
+        mostrarListagem();
+    } else {
+        alert("Por favor, preencha o nome e um valor válido.");
+    }
+    }
+
+    function atualizarTabela() {
+        produtos.sort((a, b) => a.valor - b.valor); // Ordena por valor
+        const tabela = document.getElementById("tabelaProdutos").getElementsByTagName('tbody')[0];
+        tabela.innerHTML = ""; // Limpa a tabela antes de atualizar
+
+        produtos.forEach(produto => {
+            let row = tabela.insertRow();
+            let cell1 = row.insertCell();
+            let cell2 = row.insertCell();
+            cell1.innerHTML = produto.nome;
+            cell2.innerHTML = produto.valor.toFixed(2); // Formata para duas casas decimais
+        });
+    }
+
+    function limparFormulario() {
+        document.getElementById("nome").value = "";
+        document.getElementById("descricao").value = "";
+        document.getElementById("valor").value = "";
+        document.getElementById("disponivel").selectedIndex = 0;
+    }
+
+    function mostrarListagem(){
+        document.getElementById("cadastro").style.display = "none";
+        document.getElementById("listagem").style.display = "block";
+    }
+    function mostrarCadastro(){
+        document.getElementById("cadastro").style.display = "block";
+        document.getElementById("listagem").style.display = "none";
+    }
+    </script>
+
+    </body>
+</html>
